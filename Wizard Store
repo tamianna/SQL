@@ -1,0 +1,23 @@
+/** 
+Hello welcome to my Store for magical things! Here at my shop I sell the following items: healing potions, strengthening potions, invisablity potions, wands, shields, swords, robes, upgrades, armor, charms, elxers, companions, mounts, enchanted items, and indgredients. Please use the following table to find the items listed from less expensive to most expensive as well as power rating. Thank you!
+**/
+
+CREATE TABLE items (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, aisle INTEGER, power_rating INTEGER);
+
+INSERT INTO items VALUES ( 1, "healing potions", 2, 1, 3);
+INSERT INTO items VALUES ( 2, "strengthening potions", 2, 1, 3);
+INSERT INTO items VALUES ( 3, "invisability potions", 3, 1, 4);
+INSERT INTO items VALUES ( 4, "spells", 5, 1, 5);
+INSERT INTO items VALUES ( 5, "charms", 6, 2, 5);
+INSERT INTO items VALUES ( 6, "enchanted items", 8, 2, 6);
+INSERT INTO items VALUES ( 7, "indgredients", 1, 2, 1);
+INSERT INTO items VALUES ( 8, "upgrades", 8, 2, 9);
+INSERT INTO items VALUES ( 9, "wands", 10, 3, 11);
+INSERT INTO items VALUES ( 10, "shields", 12, 3, 13);
+INSERT INTO items VALUES ( 11, "robes", 9, 3, 11);
+INSERT INTO items VALUES ( 12, "swords", 16, 3, 15);
+INSERT INTO items VALUES ( 13, "armor", 21, 3, 19);
+INSERT INTO items VALUES ( 14, "companions", 30, 4, 26);
+INSERT INTO items VALUES ( 15, "mounts", 55, 4, 55);
+
+SELECT * FROM items WHERE price >= 1 ORDER BY price;
