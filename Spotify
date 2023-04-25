@@ -50,3 +50,13 @@ SELECT track_name, artist_name, popularity
 FROM BIT_DB.Spotifydata
 WHERE popularity <= 71
 LIMIT 1
+
+Also used a CTE to the artist with an avg popularity of 90 or more
+WITH pop_avg_CTE AS (
+ SELECT s.artist_name, AVG(s.popularity) AS avg_popularity
+ FROM Spotifydata s    
+ GROUP BY s.artist_name)
+ 
+SELECT artist_name, avg_popularity, 'Top Star' AS tag
+FROM pop_avg_CTE
+WHERE avg_popularity >=90;
