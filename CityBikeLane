@@ -79,3 +79,12 @@ GROUP BY b.street)
 SELECT street, avg_safety, 'Safe Lane' AS label
 FROM avg_safety_CTE
 WHERE avg_safety >= 4;
+
+Next I used a window function with a case to sort the bike lanes out by avg rating with recommendations:
+SELECT street, safetyrating,
+AVG(safetyrating) OVER (PARTITION BY street) as "Average_safety_rating",
+CASE WHEN AVG(safetyrating) OVER (PARTITION BY street) >=4 THEN 'leave As-Is'
+WHEN AVG(safetyrating) OVER (PARTITION BY street) <2.5 THEN 'Remove'
+ELSE 'Improvements Needed'
+END AS 'Recommendation'
+FROM CityBikeLanes;
